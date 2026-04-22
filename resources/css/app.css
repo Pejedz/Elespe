@@ -1,3 +1,148 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --app-bg: #e2e2e2;
+        --app-surface: #ffffff;
+        --app-surface-soft: #f9fafb;
+        --app-text: #111827;
+        --app-text-muted: #6b7280;
+        --app-border: #e5e7eb;
+
+        --app-primary: #1f2937;
+        --app-primary-hover: #111827;
+        --app-primary-active: #030712;
+        --app-primary-contrast: #ffffff;
+
+        --app-danger: #dc2626;
+        --app-danger-hover: #ef4444;
+        --app-danger-active: #b91c1c;
+        --app-danger-contrast: #ffffff;
+
+        --app-focus: #6366f1;
+    }
+
+    .dark {
+        --app-bg: #111827;
+        --app-surface: #1f2937;
+        --app-surface-soft: #0f172a;
+        --app-text: #f3f4f6;
+        --app-text-muted: #9ca3af;
+        --app-border: #374151;
+
+        --app-primary: #e5e7eb;
+        --app-primary-hover: #ffffff;
+        --app-primary-active: #d1d5db;
+        --app-primary-contrast: #111827;
+
+        --app-danger: #ef4444;
+        --app-danger-hover: #f87171;
+        --app-danger-active: #dc2626;
+        --app-danger-contrast: #ffffff;
+
+        --app-focus: #818cf8;
+    }
+}
+
+@layer components {
+    .app-shell {
+        background-color: var(--app-bg);
+        color: var(--app-text);
+    }
+
+    .app-surface {
+        background-color: var(--app-surface);
+        color: var(--app-text);
+    }
+
+    .app-surface-soft {
+        background-color: var(--app-surface-soft);
+        color: var(--app-text);
+    }
+
+    .app-border {
+        border-color: var(--app-border);
+    }
+
+    .app-text-muted {
+        color: var(--app-text-muted);
+    }
+
+    .btn-primary {
+        background-color: var(--app-primary);
+        color: var(--app-primary-contrast);
+        transition: all 150ms ease-in-out;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: var(--app-primary-hover);
+    }
+
+    .btn-primary:active {
+        background-color: var(--app-primary-active);
+    }
+
+    .btn-secondary {
+        background-color: var(--app-surface);
+        color: var(--app-text);
+        border-color: var(--app-border);
+        transition: all 150ms ease-in-out;
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+        background-color: var(--app-surface-soft);
+    }
+
+    .btn-danger {
+        background-color: var(--app-danger);
+        color: var(--app-danger-contrast);
+        transition: all 150ms ease-in-out;
+    }
+
+    .btn-danger:hover,
+    .btn-danger:focus {
+        background-color: var(--app-danger-hover);
+    }
+
+    .btn-danger:active {
+        background-color: var(--app-danger-active);
+    }
+
+    .focus-ring {
+        --tw-ring-color: var(--app-focus);
+    }
+
+    .nav-link-active {
+        color: var(--app-text);
+        border-color: var(--app-focus);
+    }
+
+    .nav-link-inactive {
+        color: var(--app-text-muted);
+    }
+
+    .nav-link-inactive:hover {
+        color: var(--app-text);
+        border-color: var(--app-border);
+    }
+
+    .nav-mobile-link-active {
+        color: var(--app-text);
+        border-color: var(--app-focus);
+        background-color: var(--app-surface-soft);
+    }
+
+    .nav-mobile-link-inactive {
+        color: var(--app-text-muted);
+    }
+
+    .nav-mobile-link-inactive:hover {
+        color: var(--app-text);
+        border-color: var(--app-border);
+        background-color: var(--app-surface-soft);
+    }
+}
