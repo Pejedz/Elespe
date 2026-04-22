@@ -5,15 +5,15 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+    <div class="page-wrap">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="panel">
+                <div class="panel-body">
                     <form method="post" action="{{ route('items.store') }}" class="space-y-4">
                         @csrf
                         <div>
                             <x-input-label for="category_id" :value="__('Kategori')" />
-                            <select id="category_id" name="category_id" class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
+                            <select id="category_id" name="category_id" class="mt-1 block w-full border app-border app-surface focus:border-transparent focus:ring-2 focus-ring rounded-lg shadow-sm">
                                 <option value="">{{ __('Tanpa kategori') }}</option>
                                 @foreach ($categories as $cat)
                                     <option value="{{ $cat->id }}" @selected(old('category_id') == $cat->id)>{{ $cat->name }}</option>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="flex items-center gap-2">
                             <x-primary-button>{{ __('Simpan') }}</x-primary-button>
-                            <a href="{{ route('items.index') }}" class="text-sm text-gray-600 dark:text-gray-400 hover:underline">{{ __('Batal') }}</a>
+                            <a href="{{ route('items.index') }}" class="text-sm app-text-muted hover:underline">{{ __('Batal') }}</a>
                         </div>
                     </form>
                 </div>

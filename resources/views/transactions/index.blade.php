@@ -5,17 +5,17 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="page-wrap">
+        <div class="page-container">
             @if (session('success'))
-                <div class="mb-4 rounded-md bg-green-50 dark:bg-green-900/30 p-4 text-green-800 dark:text-green-200 text-sm">
+                <div class="mb-4 text-sm alert-success">
                     {{ session('success') }}
                 </div>
             @endif
 
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100 overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <div class="panel">
+                <div class="panel-body overflow-x-auto">
+                    <table class="min-w-full data-table">
                         <thead>
                             <tr>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">ID</th>
@@ -26,7 +26,7 @@
                                 <th class="px-4 py-2 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{{ __('Aksi') }}</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <tbody>
                             @forelse ($transactions as $tx)
                                 <tr>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm">{{ $tx->id }}</td>
@@ -35,14 +35,14 @@
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-right">Rp {{ number_format($tx->total, 0, ',', '.') }}</td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-right">Rp {{ number_format($tx->pay_total, 0, ',', '.') }}</td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-right">
-                                        <a href="{{ route('transactions.show', $tx) }}" class="text-indigo-600 dark:text-indigo-400 hover:underline">{{ __('Detail') }}</a>
-                                        <span class="mx-1 text-gray-300 dark:text-gray-600">|</span>
-                                        <a href="{{ route('transactions.print', $tx) }}" target="_blank" class="text-green-600 dark:text-green-400 hover:underline">{{ __('Print') }}</a>
+                                        <a href="{{ route('transactions.show', $tx) }}" class="hover:underline">{{ __('Detail') }}</a>
+                                        <span class="mx-1 app-text-muted">|</span>
+                                        <a href="{{ route('transactions.print', $tx) }}" target="_blank" class="text-emerald-500 hover:underline">{{ __('Print') }}</a>
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6" class="px-4 py-6 text-center text-sm text-gray-500 dark:text-gray-400">{{ __('Belum ada transaksi.') }}</td>
+                                    <td colspan="6" class="px-4 py-6 text-center text-sm app-text-muted">{{ __('Belum ada transaksi.') }}</td>
                                 </tr>
                             @endforelse
                         </tbody>

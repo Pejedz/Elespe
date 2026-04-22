@@ -4,16 +4,16 @@
 
 @layer base {
     :root {
-        --app-bg: #e2e2e2;
+        --app-bg: #eef2ff;
         --app-surface: #ffffff;
-        --app-surface-soft: #f9fafb;
+        --app-surface-soft: #f8faff;
         --app-text: #111827;
         --app-text-muted: #6b7280;
-        --app-border: #e5e7eb;
+        --app-border: #dbe3f3;
 
-        --app-primary: #1f2937;
-        --app-primary-hover: #111827;
-        --app-primary-active: #030712;
+        --app-primary: #4f46e5;
+        --app-primary-hover: #4338ca;
+        --app-primary-active: #3730a3;
         --app-primary-contrast: #ffffff;
 
         --app-danger: #dc2626;
@@ -25,17 +25,17 @@
     }
 
     .dark {
-        --app-bg: #111827;
-        --app-surface: #1f2937;
-        --app-surface-soft: #0f172a;
+        --app-bg: #0b1220;
+        --app-surface: #111a2f;
+        --app-surface-soft: #17223d;
         --app-text: #f3f4f6;
-        --app-text-muted: #9ca3af;
-        --app-border: #374151;
+        --app-text-muted: #a5b4d4;
+        --app-border: #24304f;
 
-        --app-primary: #e5e7eb;
-        --app-primary-hover: #ffffff;
-        --app-primary-active: #d1d5db;
-        --app-primary-contrast: #111827;
+        --app-primary: #818cf8;
+        --app-primary-hover: #6366f1;
+        --app-primary-active: #4f46e5;
+        --app-primary-contrast: #ffffff;
 
         --app-danger: #ef4444;
         --app-danger-hover: #f87171;
@@ -50,11 +50,16 @@
     .app-shell {
         background-color: var(--app-bg);
         color: var(--app-text);
+        background-image: radial-gradient(circle at 0% 0%, rgb(99 102 241 / 0.14), transparent 35%),
+            radial-gradient(circle at 100% 0%, rgb(16 185 129 / 0.1), transparent 30%);
+        background-attachment: fixed;
     }
 
     .app-surface {
         background-color: var(--app-surface);
         color: var(--app-text);
+        border: 1px solid var(--app-border);
+        border-radius: 1rem;
     }
 
     .app-surface-soft {
@@ -74,6 +79,7 @@
         background-color: var(--app-primary);
         color: var(--app-primary-contrast);
         transition: all 150ms ease-in-out;
+        box-shadow: 0 10px 18px -14px var(--app-primary);
     }
 
     .btn-primary:hover,
@@ -114,6 +120,70 @@
 
     .focus-ring {
         --tw-ring-color: var(--app-focus);
+    }
+
+    .page-wrap {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .page-container {
+        width: 100%;
+        max-width: 80rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .panel {
+        background-color: var(--app-surface);
+        border: 1px solid var(--app-border);
+        border-radius: 1rem;
+        box-shadow: 0 20px 40px -30px rgb(15 23 42 / 0.6);
+        overflow: hidden;
+    }
+
+    .panel-header {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--app-border);
+        background-color: color-mix(in srgb, var(--app-surface-soft) 80%, transparent);
+    }
+
+    .panel-body {
+        padding: 1.25rem;
+    }
+
+    .alert-success {
+        background-color: color-mix(in srgb, #10b981 14%, var(--app-surface));
+        color: var(--app-text);
+        border: 1px solid color-mix(in srgb, #10b981 40%, var(--app-border));
+        border-radius: 0.875rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .alert-error {
+        background-color: color-mix(in srgb, #ef4444 12%, var(--app-surface));
+        color: var(--app-text);
+        border: 1px solid color-mix(in srgb, #ef4444 38%, var(--app-border));
+        border-radius: 0.875rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .data-table thead {
+        background-color: var(--app-surface-soft);
+    }
+
+    .data-table th {
+        color: var(--app-text-muted);
+        font-weight: 600;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .data-table tbody tr {
+        border-top: 1px solid var(--app-border);
     }
 
     .nav-link-active {

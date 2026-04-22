@@ -5,10 +5,10 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+    <div class="page-wrap">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="panel">
+                <div class="panel-body">
                     <form method="post" action="{{ route('categories.update', $category) }}" class="space-y-4">
                         @csrf
                         @method('PUT')
@@ -19,7 +19,7 @@
                         </div>
                         <div class="flex items-center gap-2">
                             <x-primary-button>{{ __('Perbarui') }}</x-primary-button>
-                            <a href="{{ route('categories.index') }}" class="text-sm text-gray-600 dark:text-gray-400 hover:underline">{{ __('Batal') }}</a>
+                            <a href="{{ route('categories.index') }}" class="text-sm app-text-muted hover:underline">{{ __('Batal') }}</a>
                         </div>
                     </form>
                 </div>
