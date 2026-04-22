@@ -30,7 +30,7 @@
                                 <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex flex-col">
                                     <div class="flex-1">
                                         <p class="font-medium text-gray-900 dark:text-gray-100">{{ $product->name }}</p>
-                                        <p class="text-xs text-gray-500 dark:text-gray-400">{{ $product->category->name }}</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">{{ $product->category?->name ?? 'Tanpa kategori' }}</p>
                                         <p class="mt-2 text-sm text-indigo-600 dark:text-indigo-400">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                                         <p class="text-xs text-gray-500 dark:text-gray-400">{{ __('Stok') }}: {{ $product->stock }}</p>
                                     </div>

@@ -56,7 +56,7 @@
                             @foreach ($transaction->details as $detail)
                                 <tr>
                                     <td class="px-4 py-3 text-sm">{{ $detail->item->name }}</td>
-                                    <td class="px-4 py-3 text-sm">{{ $detail->item->category->name }}</td>
+                                    <td class="px-4 py-3 text-sm">{{ $detail->item->category?->name ?? 'Tanpa kategori' }}</td>
                                     <td class="px-4 py-3 text-sm text-center">{{ $detail->qty }}</td>
                                     <td class="px-4 py-3 text-sm text-right">Rp {{ number_format($detail->subtotal, 0, ',', '.') }}</td>
                                 </tr>

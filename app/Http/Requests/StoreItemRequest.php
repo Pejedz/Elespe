@@ -15,7 +15,7 @@ class StoreItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category_id' => ['required', 'integer', Rule::exists('categories', 'id')],
+            'category_id' => ['nullable', 'integer', Rule::exists('categories', 'id')],
             'name' => ['required', 'string', 'max:255'],
             'price' => ['required', 'integer', 'min:0'],
             'stock' => ['required', 'integer', 'min:1'],

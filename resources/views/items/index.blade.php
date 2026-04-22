@@ -36,7 +36,7 @@
                                 <tr>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm">{{ $item->id }}</td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm">{{ $item->name }}</td>
-                                    <td class="px-4 py-3 whitespace-nowrap text-sm">{{ $item->category->name }}</td>
+                                    <td class="px-4 py-3 whitespace-nowrap text-sm">{{ $item->category?->name ?? 'Tanpa kategori' }}</td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-right">Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-right">{{ $item->stock }}</td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-right space-x-2">
