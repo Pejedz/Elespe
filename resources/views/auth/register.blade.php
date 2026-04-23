@@ -1,5 +1,11 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <div class="mb-6 text-center">
+        <p class="text-xs uppercase tracking-[0.25em] text-emerald-500 font-semibold">Buat Akun</p>
+        <h1 class="mt-2 text-2xl font-bold text-gray-900 dark:text-gray-100">Daftar Member Baru</h1>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Lengkapi data di bawah agar kamu bisa langsung mulai berbelanja.</p>
+    </div>
+
+    <form method="POST" action="{{ route('register') }}" class="space-y-4">
         @csrf
 
         <!-- Name -->
@@ -10,14 +16,14 @@
         </div>
 
         <!-- Email Address -->
-        <div class="mt-4">
+        <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
+        <div>
             <x-input-label for="password" :value="__('Password')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
@@ -29,7 +35,7 @@
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
+        <div>
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
@@ -39,14 +45,16 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
+        <div class="pt-1">
+            <x-primary-button class="w-full justify-center !py-2.5 !text-sm">
+                {{ __('Daftar') }}
             </x-primary-button>
         </div>
     </form>
+
+    <div class="mt-6 text-center">
+            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+                {{ __('Sudah Terdaftar?') }}
+            </a>
+    </div>
 </x-guest-layout>

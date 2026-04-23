@@ -18,6 +18,17 @@
                 </div>
             @endif
 
+            @if ($lowStockItems->isNotEmpty())
+                <div class="mb-4 text-sm alert-warning">
+                    <div class="font-semibold mb-1">
+                        Peringatan stok menipis (<= {{ $lowStockThreshold }})
+                    </div>
+                    <div class="text-xs sm:text-sm">
+                        {{ $lowStockItems->pluck('name')->join(', ') }}
+                    </div>
+                </div>
+            @endif
+
             <div class="panel">
                 <div class="panel-body overflow-x-auto">
                     <table class="min-w-full data-table">
@@ -38,7 +49,13 @@
                                     <td class="px-4 py-3 whitespace-nowrap text-sm">{{ $item->name }}</td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm">{{ $item->category?->name ?? 'Tanpa kategori' }}</td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-right">Rp {{ number_format($item->price, 0, ',', '.') }}</td>
-                                    <td class="px-4 py-3 whitespace-nowrap text-sm text-right">{{ $item->stock }}</td>
+                                    <td class="px-4 py-3 whitespace-nowrap text-sm text-right">
+                                        @if ($item->stock > 0 && $item->stock <= $lowStockThreshold)
+                                            <span class="text-amber-600 dark:text-amber-400 font-semibold">{{ $item->stock }} (menipis)</span>
+                                        @else
+                                            {{ $item->stock }}
+                                        @endif
+                                    </td>
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-right space-x-2">
                                         <a href="{{ route('items.edit', $item) }}" class="hover:underline">Edit</a>
                                         <form action="{{ route('items.destroy', $item) }}" method="post" class="inline" onsubmit="return confirm('Hapus item ini?');">

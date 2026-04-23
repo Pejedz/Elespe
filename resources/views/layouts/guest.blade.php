@@ -16,13 +16,13 @@
     </head>
     <body class="font-sans antialiased app-shell">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 app-shell">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current app-text-muted" />
+            <div class="text-center">
+                <a href="/" class="inline-flex items-center justify-center">
+                    <x-application-logo class="w-20 h-auto" />
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 app-surface shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-5 app-surface shadow-md overflow-hidden sm:rounded-xl">
                 {{ $slot }}
             </div>
         </div>

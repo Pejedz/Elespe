@@ -16,6 +16,8 @@ use Illuminate\View\View;
 
 class PosController extends Controller
 {
+    private const LOW_STOCK_THRESHOLD = 5;
+
     public function __construct(
         private readonly CartService $cart
     ) {}
@@ -30,8 +32,9 @@ class PosController extends Controller
 
         $cartLines = $this->cart->lines();
         $cartTotal = $this->cart->total();
+        $lowStockThreshold = self::LOW_STOCK_THRESHOLD;
 
-        return view('pos.index', compact('items', 'cartLines', 'cartTotal'));
+        return view('pos.index', compact('items', 'cartLines', 'cartTotal', 'lowStockThreshold'));
     }
 
     public function addToCart(AddCartItemRequest $request): RedirectResponse

@@ -33,6 +33,11 @@
                                         <p class="text-xs app-text-muted">{{ $product->category?->name ?? 'Tanpa kategori' }}</p>
                                         <p class="mt-2 text-sm font-semibold">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                                         <p class="text-xs app-text-muted">{{ __('Stok') }}: {{ $product->stock }}</p>
+                                        @if ($product->stock <= $lowStockThreshold)
+                                            <p class="mt-1 text-xs font-semibold text-amber-600 dark:text-amber-400">
+                                                Stok menipis - segera restok
+                                            </p>
+                                        @endif
                                     </div>
                                     <form action="{{ route('pos.cart.add') }}" method="post" class="mt-3 flex items-end gap-2">
                                         @csrf

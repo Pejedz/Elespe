@@ -11,11 +11,25 @@ use Illuminate\View\View;
 
 class ItemController extends Controller
 {
+    private const LOW_STOCK_THRESHOLD = 5;
+
     public function index(): View
     {
         $items = Item::query()->with('category')->orderBy('name')->paginate(15);
 
-        return view('items.index', compact('items'));
+        $lowStockItems = Item::query()
+            ->with('category')
+            ->where('stock', '>', 0)
+            ->where('stock', '<=', self::LOW_STOCK_THRESHOLD)
+            ->orderBy('stock')
+            ->orderBy('name')
+            ->get();
+
+        return view('items.index', [
+            'items' => $items,
+            'lowStockItems' => $lowStockItems,
+            'lowStockThreshold' => self::LOW_STOCK_THRESHOLD,
+        ]);
     }
 
     public function create(): View

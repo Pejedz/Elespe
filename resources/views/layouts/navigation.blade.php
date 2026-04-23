@@ -22,7 +22,7 @@
                         {{ __('Item') }}
                     </x-nav-link>
                     <x-nav-link :href="route('pos.index')" :active="request()->routeIs('pos.*')">
-                        {{ __('POS') }}
+                        {{ __('Transaksi') }}
                     </x-nav-link>
                     <x-nav-link :href="route('transactions.index')" :active="request()->routeIs('transactions.*')">
                         {{ __('Histori') }}

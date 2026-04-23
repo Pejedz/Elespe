@@ -23,7 +23,7 @@
             </div>
             <div class="mt-8">
                 <a href="{{ route('pos.index') }}" class="inline-flex items-center px-4 py-2 btn-primary border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest">
-                    {{ __('Buka POS') }}
+                    {{ __('Buka Keranjang') }}
                 </a>
             </div>
         </div>
